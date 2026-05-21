@@ -17,10 +17,10 @@
 
 <ul>
     <li>
-        If the input is a file containing a Boolean network, then move the file into the directory <code>Boolean/data/networks</code>. The type of the file should be **network**.
+        If the input is a file containing a Boolean network, then move the file into the directory <code>Boolean/data/networks</code>. The type of the file should be <strong>network</strong>.
     </li>
     <li>
-        If the input is a file containing transitions, then move the file into the directory <code>Boolean/data/transitions</code>. The type of the file should be **transitions**.
+        If the input is a file containing transitions, then move the file into the directory <code>Boolean/data/transitions</code>. The type of the file should be <strong>transitions</strong>.
     </li>
 </ul>
 
@@ -37,5 +37,15 @@ Open the terminal. Change its directory to `Boolean`. Run the command `python ma
 <ul>
     <li>
         Load a Boolean network. Generate complete transitions based on this Boolean network. Save them under the path <code>Boolean/data/transitions</code>. The complete transitions is saved as the name of the Boolean network with a suffix <strong>_complete</strong> and the file type <strong>transitions</strong>.
+        <div style="color: green;">Verified:
+        <ul>
+            <li>
+                Budding Yeast Network
+            </li>
+            <li>
+                Fission Yeast Network
+            </li>
+        </ul>
+        </div>
     </li>
 </ul>
