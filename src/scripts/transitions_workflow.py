@@ -14,7 +14,7 @@ from src.transitions.inference.strong_inhibition_single_decomposition import Str
 from src.transitions.states_transitions import StatesTransitions
 
 # Import to compute logarithms.
-import math
+import numpy as np
 
 
 def load_transitions_and_check_components(transitions_name_str: str, boolean_variables_str_and_ordered_indices_int_dict: dict[str: int] = None):
@@ -232,7 +232,7 @@ def load_transitions_and_apply_strong_inhibition_inference_with_full_search(tran
             number_of_solutions_int = len(no_red_self_solutions_dict_1d_list) + len(red_self_solutions_dict_1d_list)
 
             # Increment its logarithm base to the total logarithm.
-            logarithm_of_number_of_solutions_float += math.log(number_of_solutions_int)
+            logarithm_of_number_of_solutions_float += np.log(number_of_solutions_int)
 
             # Initialize dictionaries to store probabilities of green and red edges.
             green_sources_str_and_probabilities_float_dict = {current_boolean_variable_str: 0.0 for current_boolean_variable_str in states_transitions_object.boolean_variables_str_and_ordered_indices_int_dict}

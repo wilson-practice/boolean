@@ -1,6 +1,8 @@
 # Import to visualize.
 from src.visualization.values_visualization import visualize_belief_propagation_and_full_search
 
+# Import to compute logarithms.
+import numpy as np
 
 def convert_boolean_dictionary_to_binary_string(boolean_variables_str_and_boolean_values_bool_dict, boolean_variables_str_and_ordered_indices_int_dict) -> str:
     """
@@ -152,7 +154,7 @@ def union(first_member_id_int: int, second_member_id_int: int, members_ids_int_a
         members_ids_int_and_leaders_ids_int_dict[second_final_leader_id_int] = first_final_leader_id_int
 
 
-def compare_belief_propagation_with_full_search(bp_target_boolean_variables_str_and_green_sources_str_and_probabilities_float_dict: dict[str: dict[str: float]], bp_target_boolean_variables_str_and_red_sources_str_and_probabilities_float_dict: dict[str: dict[str: float]], fs_target_boolean_variables_str_and_green_sources_str_and_probabilities_float_dict: dict[str: dict[str: float]], fs_target_boolean_variables_str_and_red_sources_str_and_probabilities_float_dict: dict[str: dict[str: float]]):
+def compare_belief_propagation_with_full_search(bp_target_boolean_variables_str_and_green_sources_str_and_probabilities_float_dict: dict[str: dict[str: float]], bp_target_boolean_variables_str_and_red_sources_str_and_probabilities_float_dict: dict[str: dict[str: float]], bp_entropy_float: float, fs_target_boolean_variables_str_and_green_sources_str_and_probabilities_float_dict: dict[str: dict[str: float]], fs_target_boolean_variables_str_and_red_sources_str_and_probabilities_float_dict: dict[str: dict[str: float]], fs_logarithm_of_number_of_solutions_float: float):
     """
         Compare Belief Propagation results with Full Search results.
 
@@ -161,10 +163,14 @@ def compare_belief_propagation_with_full_search(bp_target_boolean_variables_str_
                 The dictionary containing key-value pairs about target Boolean variables and green sources Boolean variables with probabilities from Belief Propagation.
             bp_target_boolean_variables_str_and_red_sources_str_and_probabilities_float_dict (dict[str: dict[str: float]]).
                 The dictionary containing key-value pairs about target Boolean variables and red sources Boolean variables with probabilities from Belief Propagation.
+            bp_entropy_float (float).
+                The float denoting the entropy from Belief Propagation.
             fs_target_boolean_variables_str_and_green_sources_str_and_probabilities_float_dict (dict[str: dict[str: float]]).
                 The dictionary containing key-value pairs about target Boolean variables and green sources Boolean variables with probabilities from Full Search.
             fs_target_boolean_variables_str_and_red_sources_str_and_probabilities_float_dict (dict[str: dict[str: float]]).
                 The dictionary containing key-value pairs about target Boolean variables and red sources Boolean variables with probabilities from Full Search.
+            fs_logarithm_of_number_of_solutions_float (float)
+                The float denoting the logarithm of number of solutions from Full Search.
     """
 
     # Initialize an empty 1-dimensional list to store probabilities of BP.
@@ -197,5 +203,11 @@ def compare_belief_propagation_with_full_search(bp_target_boolean_variables_str_
             # Append the probability of the current red edge into the list of FS.
             fs_probabilities_float_1d_list.append(fs_target_boolean_variables_str_and_red_sources_str_and_probabilities_float_dict[target_boolean_variable_str][source_boolean_variable_str])
 
-    # Call the method to visualize and compare BP and FS.
+    # Print the predicted number of solutions from Belief Propagation.
+    print(f"BP predicted number of solutions: 10^{bp_entropy_float * np.log10(np.e):.2f}")
+
+    # Print the read number of solutions from Full Search.
+    print(f"Real number of solutions: 10^{fs_logarithm_of_number_of_solutions_float * np.log10(np.e):.2f}")
+
+    # Call the method to visualize and compare Belief Propagation and Full Search.
     visualize_belief_propagation_and_full_search(bp_float_1d_list=bp_probabilities_float_1d_list, fs_float_1d_list=fs_probabilities_float_1d_list)
