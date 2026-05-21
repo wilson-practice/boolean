@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-Download the project
-Modify parameters in config/__init__.py
-Run the command "python main.py" on the terminal
-=======
 # Analysis of Boolean Networks and Transitions 
 
 ## How to run the code?
@@ -44,4 +39,3 @@ Open the terminal. Change its directory to `Boolean`. Run the command `python ma
         Load a Boolean network. Generate complete transitions based on this Boolean network. Save them under the path <code>Boolean/data/transitions</code>. The complete transitions is saved as the name of the Boolean network with a suffix <strong>_complete</strong> and the file type <strong>transitions</strong>.
     </li>
 </ul>
->>>>>>> 859e85d (Bind GitHub project with local files)
