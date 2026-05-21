@@ -1,6 +1,6 @@
 # This parameter denotes which biological system you would like to choose for analysis.
 # This string can be a file name in two folders: data/networks and data/transitions. Other commands below will determine this is a file with a Boolean network or with transitions.
-BIOLOGICAL_SYSTEM_NAME = "budding_yeast_manuscript"
+BIOLOGICAL_SYSTEM_NAME = "fission_yeast_manuscript"
 
 # This parameter denotes the name of the command for analysis.
 # If this is "Complete Transitions Generation", then it means that you are loading a Boolean network as an input, and you call methods to generate all transitions from this Boolean network. The name of the output is the name of the system with a suffix "complete".
